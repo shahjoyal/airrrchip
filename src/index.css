@@ -1,0 +1,855 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Arial', sans-serif;
+}
+
+body {
+  display: flex;
+  background-color: #ffffff;
+}
+
+/* Sidebar */
+/* Sidebar */
+/* Sidebar */
+.sidebar {
+  width: 250px;
+  background: #e8fff3;
+  height: 100vh;
+  padding: 20px;
+  position: fixed;
+  left: 0;
+  top: 0;
+  transition: width 0.3s ease-in-out;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* When sidebar is closed */
+.sidebar.closed {
+  width: 80px;
+  overflow: hidden;
+}
+
+/* Sidebar Header */
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;  /* Adjust spacing */
+  position: relative;
+}
+
+/* Toggle Button */
+.toggle-btn {
+  position: absolute;
+  right: -15px;  /* Keep it at the sidebar border */
+  top: 15px;  /* Move it higher */
+  background: #ffffff;
+  border: 2px solid #ccc;
+  border-radius: 50%;
+  cursor: pointer;
+  padding: 8px;
+  font-size: 16px;
+  transition: transform 0.3s ease, right 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* When sidebar is collapsed */
+.sidebar.closed .toggle-btn {
+  right: 10px; /* Adjusted */
+}
+
+/* When sidebar is collapsed */
+.sidebar.closed .toggle-btn {
+  right: 10px; /* Adjusted */
+}
+
+.sidebar.closed .toggle-btn::after {
+  transform: rotate(180deg); /* Flip arrow left */
+}
+
+/* Menu Styling */
+.menu {
+  list-style: none;
+  padding: 0;
+  margin-top: 80px; /* Increase spacing below Claims */
+}
+
+.sidebar.closed .menu {
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.menu li {
+  display: flex;
+  align-items: center;
+  padding: 12px 15px;
+  font-size: 16px;
+  color: #444;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background 0.2s ease-in-out;
+  font-weight: normal;
+}
+
+.sidebar.closed .menu li {
+  justify-content: center;
+}
+
+.sidebar.closed .menu li span {
+  display: none;
+}
+
+.menu li.active {
+  background: white;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.menu li .icon {
+  margin-right: 10px;
+  font-size: 18px;
+}
+
+/* Adjusted Bottom Menu */
+.bottom-menu {
+  position: absolute;
+  bottom: 140px; /* Move up to align */
+  width: 100%;
+}
+
+.bottom-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Adjust Bottom Menu Arrows */
+.bottom-menu li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 15px;
+  font-size: 16px;
+  color: #666;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background 0.2s ease-in-out;
+  font-weight: normal;
+}
+
+/* Move Arrow Inwards */
+/* Move Arrow Closer to Text */
+/* Move Arrow Closer to Text */
+/* Target the arrow icon */
+.bottom-menu li .side-arrow {
+  position: relative;
+  right: 10px; /* Move it inward */
+  transition: all 0.3s ease;
+}
+
+
+
+/* Rotate Arrow on Hover */
+.bottom-menu li:hover .side-arrow {
+  transform: rotate(180deg);
+}
+
+
+.bottom-menu li:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.bottom-menu li .icon {
+  margin-right: 10px;
+  font-size: 18px;
+}
+
+
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: white;
+  padding: 15px;
+  border-bottom: 1px solid #ddd;
+}
+
+.search-bar {
+  padding: 10px;
+  width: 300px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+}
+
+.profile-section {
+  display: flex;
+  align-items: center;
+}
+
+.profile-pic {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.dropdown-menu {
+  position: absolute;
+  right: 10px;
+  top: 60px;
+  background: white;
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+.app {
+  display: flex; /* Makes Sidebar and main-content sit next to each other */
+  width: 100vw; /* Full width of the viewport */
+  height: 100vh; /* Full height of the viewport */
+}
+
+.sidebar {
+  width: 250px; /* Set a fixed width for the Sidebar */
+  flex-shrink: 0; /* Prevent Sidebar from shrinking */
+}
+
+.main-content {
+  flex-grow: 1; /* Takes up remaining space */
+  width: 100%;
+  padding: 20px;
+  overflow-x: hidden; /* Prevents unwanted horizontal scrolling */
+}
+
+/* Main Content */
+.main-content {
+  margin-left: 250px; /* Sidebar width */
+  padding: 20px;
+  width: calc(100% - 250px); /* Adjusts width dynamically */
+  max-width: 100%;
+}
+
+.sidebar.closed + .main-content {
+  margin-left: 80px; /* Adjust according to collapsed sidebar width */
+}
+/*claim.css*/
+.create-claim {
+  padding: 20px;
+  width: 100%; /* Full width */
+}
+
+.create-claim-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.create-claim-text {
+  flex: 1;
+  font-size: 14px;
+  color: #666;
+}
+
+.green-bbutton {
+  background-color: #21fd90;
+  color: black;
+  border: none;
+  padding: 13px 21px; /* Increased padding for a bigger button */
+  border-radius: 5px;  /* Slightly larger border-radius for a smoother look */
+  font-size: 18px; /* Increased font size */
+  cursor: pointer;
+  transition: background 0.3s ease;
+  font-weight: 600;
+}
+
+
+.green-button:hover {
+  background-color: #00c853;
+}
+
+.section-divider {
+  height: 1px;
+  background: #ddd;
+  margin: 10px 0;
+  width: 100%;
+}
+
+/*claim.css*/
+.tabs {
+  display: flex;
+  justify-content: flex-start;
+  gap: 20px;
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 5px;
+  width: 100%; /* Make tabs full width */
+}
+.tabs {
+  display: flex;
+  gap: 20px;
+}
+
+.tabs button {
+  background: none;
+  border: none;
+  font-size: 20px;
+  font-weight: 500;
+  color: #666;
+  padding: 8px 12px;
+  position: relative;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  font-family: 'Nimbus Sans Novus Pro', sans-serif;
+  color: black; /* Ensures text is black */
+  display: flex;
+  align-items: center;
+}
+
+.tabs button:hover {
+  color: #000;
+}
+
+.tabs button.active {
+  color: #000;
+  font-weight: 600;
+}
+
+.tabs button.active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 100%;
+  height: 3px;
+  background-color: #00e676;
+  border-radius: 10px;
+}
+
+/* Styling for the count inside a green circle */
+.count {
+  font-size: 15px;
+  font-weight: 600;
+  margin-left: 5px;
+  color: white;
+  background-color: #00e676;
+  border-radius: 80%;
+  width: 25px;
+  height: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Gray styling for inactive tabs */
+.tabs button:not(.active) .count {
+  background-color: #ccc;
+  color: #666;
+}
+
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .tabs {
+    gap: 10px;
+    overflow-x: auto; /* Allow horizontal scrolling */
+    white-space: nowrap;
+    font-family: 'Nimbus Sans Novus Pro', sans-serif;
+    font-weight: 600; /* Semi-bold */
+    color: black; /* Ensures text is black */
+  }
+
+  .tabs button {
+    font-size: 14px;
+    padding: 6px 8px;
+  }
+
+  .count {
+    font-size: 12px;
+  }
+}
+
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .tabs {
+    gap: 10px;
+    overflow-x: auto; /* Allow horizontal scrolling */
+    white-space: nowrap;
+  }
+
+  .tabs button {
+    font-size: 14px;
+    padding: 6px 8px;
+  }
+
+  .count {
+    font-size: 12px;
+  }
+}
+/* Toolbar Container */
+.toolbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 10px 20px;
+  background: white;
+}
+
+/* Search Bar */
+.search-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #f8f8f8;
+  border-radius: 8px;
+  padding: 10px 15px;
+  width: 250px;
+  border: 1px solid #e0e0e0;
+}
+
+.search-icon {
+  color: #b0b0b0;
+  font-size: 14px;
+}
+
+.search-bar input {
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 14px;
+  color: #666;
+  width: 100%;
+}
+
+/* Right Section */
+.right-section {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+/* Date Picker */
+.date-picker {
+  padding: 8px 12px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 14px;
+  color: #666;
+  background: white;
+  cursor: pointer;
+}
+
+/* Filter Button */
+.filter-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: white;
+  border: 1px solid #e0e0e0;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 14px;
+  color: #666;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.filter-button:hover {
+  background: #f2f2f2;
+}
+
+/* Export Button */
+.green-button {
+  background: #21fe91;
+  color: black;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.green-button:hover {
+  background: #21ff92;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .toolbar-container {
+    flex-direction: column;
+    gap: 10px;
+    align-items: stretch;
+  }
+
+  .right-section {
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .search-bar {
+    width: 100%;
+  }
+}
+/* Table Container123 */
+/* Table Container */
+/* Table Container */
+.claims-table {
+  width: 100%;
+  max-width: 100%;
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Table Wrapper to prevent scrolling */
+.table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  display: flex;
+  justify-content: center;
+}
+
+/* Table */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  color: #555;
+}
+
+/* Table Header */
+thead tr {
+  background: #f5f5f5;
+  text-align: left;
+  font-weight: 600;
+}
+
+th {
+  padding: 10px;
+  font-size: 14px;
+  color: #888;
+  white-space: nowrap;
+}
+
+/* Table Rows */
+tbody tr {
+  border-bottom: 1px solid #eaeaea;
+}
+
+tbody tr:hover {
+  background: #f9f9f9;
+}
+
+/* Table Cells */
+td {
+  padding: 10px;
+  font-size: 14px;
+  color: #444;
+  white-space: nowrap;
+}
+
+/* Status Column */
+.status {
+  font-weight: 600;
+  color: #3dc27b;
+  display: flex;
+  align-items: center;
+}
+
+.status::before {
+  content: "•";
+  color: #3dc27b;
+  margin-right: 5px;
+  font-size: 16px;
+}
+
+/* Pagination */
+/* Pagination Container */
+/* Pagination Container */
+.pagination-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-top: 10px;
+  flex-wrap: wrap;
+}
+
+/* Align pagination to the right */
+.pagination {
+  display: flex;
+  justify-content: flex-end; /* Moves pagination to the right */
+  align-items: center;
+  gap: 5px;
+}
+
+/* Align text to the left */
+.pagination-info {
+  font-size: 14px;
+  color: #666;
+  text-align: left;
+}
+
+
+
+.page-btn {
+  padding: 6px 10px;
+  border: 1px solid #e0e0e0;
+  background: white;
+  color: #666;
+  font-size: 14px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.page-btn:hover {
+  background: #f2f2f2;
+}
+
+.page-btn.active {
+  background: #00e676;
+  color: white;
+  font-weight: 600;
+  border: none;
+}
+
+.page-btn:disabled {
+  color: #bbb;
+  cursor: not-allowed;
+}
+
+/* Make table fit in mobile without scrolling */
+@media screen and (max-width: 768px) {
+  .claims-table {
+    padding: 10px;
+  }
+
+  .table-wrapper {
+    overflow-x: hidden;
+  }
+
+  table {
+    font-size: 12px;
+  }
+
+  th,
+  td {
+    padding: 8px;
+  }
+
+  .pagination {
+    gap: 3px;
+  }
+
+  .page-btn {
+    padding: 5px 8px;
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .claims-table {
+    padding: 5px;
+  }
+
+  .table-wrapper {
+    width: 100%;
+    overflow-x: hidden;
+  }
+
+  table {
+    font-size: 11px;
+  }
+
+  th, td {
+    padding: 6px;
+  }
+
+  .pagination {
+    gap: 2px;
+  }
+
+  .page-btn {
+    padding: 4px 6px;
+    font-size: 10px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  .pagination {
+    gap: 3px;
+  }
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .create-claim-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .create-claim-text {
+    max-width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .green-button {
+    width: 100%; /* Full width button */
+    text-align: center;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 80px;
+  }
+  
+  .sidebar.open {
+    width: 200px;
+  }
+  
+  .search-bar {
+    width: 200px;
+  }
+  
+  .profile-section {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 480px) {
+  .sidebar {
+    display: none;
+  }
+  
+  .main-content {
+    padding: 10px;
+  }
+  
+  .search-bar {
+    width: 150px;
+  }
+}
+body {
+  font-family: 'Inter', sans-serif; /* Use Inter or a similar clean font */
+  font-size: 16px; /* Adjust as needed */
+  color: #333; /* Dark gray for readability */
+}
+
+h1, h2, h3 {
+  font-weight: 600; /* Medium bold */
+}
+
+button {
+  font-size: 14px;
+  font-weight: 500;
+}
+/* Ensure content is centered and doesn't exceed screen width */
+.container {
+  max-width: 1200px;
+  width: 100%;
+  margin: auto;
+  padding: 0 15px;
+}
+
+/* Make flex layouts wrap and stack items on small screens */
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+@media (max-width: 1024px) {
+  /* Adjust the sidebar width */
+  .sidebar {
+    width: 100%;
+    position: relative;
+  }
+
+  /* Center text inside headers */
+  .header {
+    text-align: center;
+  }
+  
+  /* Ensure buttons take full width */
+  .button {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  /* Make tables scrollable */
+  .table-container {
+    overflow-x: auto;
+    display: block;
+    white-space: nowrap;
+  }
+
+  /* Stack flex items vertically */
+  .flex-container {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+/* Extra small screens (phones) */
+@media (max-width: 768px) {
+  /* Reduce padding and font sizes */
+  .container {
+    padding: 0 10px;
+  }
+
+  h1 {
+    font-size: 22px;
+  }
+
+  p {
+    font-size: 14px;
+  }
+
+  /* Ensure search and date inputs take full width */
+  .search-bar, .date-picker {
+    width: 100%;
+  }
+}
+
+/* Very small screens (below 480px) */
+@media (max-width: 480px) {
+  .header {
+    font-size: 18px;
+    text-align: center;
+  }
+
+  .button {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  /* Stack all items and add some spacing */
+  .flex-container {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  /* Reduce table font size */
+  .table-container {
+    font-size: 12px;
+  }
+}
